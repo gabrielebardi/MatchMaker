@@ -1,0 +1,20 @@
+<!-- result.html -->
+
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <h1>Evaluation Result</h1>
+
+    <div class="image-gallery">
+        {% for img_path, rating in zip(images, result.ratings) %}
+            <div class="image-item">
+                <img src="{{ url_for('static', filename=img_path.split('static/')[-1]) }}" alt="Uploaded Image" style="max-width:200px;">
+                <p>Predicted Rating: {{ rating | round(1) }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <h2>Generated Pickup Line</h2>
+    <p>{{ result.pickup_line }}</p>
+</div>
+{% endblock %}

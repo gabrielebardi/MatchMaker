@@ -1,0 +1,24 @@
+<!-- templates/evaluate.html -->
+{% extends "layout.html" %}
+{% block title %}Evaluate Images{% endblock %}
+{% block content %}
+<h2>Evaluate Images</h2>
+<form action="{{ url_for('evaluate') }}" method="post" enctype="multipart/form-data" onsubmit="showLoadingMessage()">
+    <div class="form-group">
+        <label for="images">Upload Image(s):</label>
+        <input type="file" name="images" id="images" multiple class="form-control-file" required>
+        <small class="form-text text-muted">You can upload one or more images.</small>
+    </div>
+    <button type="submit" class="btn btn-primary">Evaluate</button>
+</form>
+
+<div id="loadingMessage" style="display:none;">
+    Processing your photos... Please wait.
+</div>
+
+<script>
+function showLoadingMessage() {
+    document.getElementById("loadingMessage").style.display = "block";
+}
+</script>
+{% endblock %}

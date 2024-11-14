@@ -1,0 +1,16 @@
+<!-- templates/profile.html -->
+
+{% extends "layout.html" %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<h2>Profile</h2>
+<p>Email: {{ current_user.email }}</p>
+<p>Subscription Status: 
+    {% if subscribed %}
+    <span class="text-success">Active</span>
+    {% else %}
+    <span class="text-danger">Inactive - Subscription required for full access.</span>
+    {% endif %}
+</p>
+<a href="{{ url_for('home') }}" class="btn btn-primary">Back to Home</a>
+{% endblock %}

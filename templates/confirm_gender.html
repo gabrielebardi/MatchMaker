@@ -1,0 +1,20 @@
+<!-- confirm_gender.html -->
+{% extends "layout.html" %}
+{% block title %}Confirm Gender{% endblock %}
+{% block content %}
+<h2>Confirm Your Gender Preference</h2>
+<form method="POST" action="{{ url_for('confirm_gender') }}">
+    <div class="form-group">
+        <label>Select your preference:</label>
+        <div>
+            <input type="radio" name="gender" value="man" id="man" {% if current_user.preference == 'man' %}checked{% endif %}>
+            <label for="man">Man</label>
+        </div>
+        <div>
+            <input type="radio" name="gender" value="woman" id="woman" {% if current_user.preference == 'woman' %}checked{% endif %}>
+            <label for="woman">Woman</label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Confirm and Recalibrate</button>
+</form>
+{% endblock %}

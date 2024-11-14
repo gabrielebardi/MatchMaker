@@ -1,0 +1,13 @@
+azure-cognitiveservices-vision-computervision
+msrest
+openai
+deepface
+tensorflow
+keras
+flask
+flask_sqlalchemy
+flask_wtf
+flask_login
+numpy
+scikit-learn
+python-dotenv

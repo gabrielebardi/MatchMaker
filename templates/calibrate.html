@@ -1,0 +1,22 @@
+<!-- calibrate.html -->
+
+{% extends "layout.html" %}
+{% block content %}
+<h1>Calibration</h1>
+<form method="POST" action="{{ url_for('calibrate') }}">
+    {% for image in images %}
+    <div class="calibration-item">
+        <img src="{{ url_for('static', filename=image.filename) }}" alt="Calibration Image">
+        <input type="hidden" name="image_filename_{{ image.id }}" value="{{ image.filename }}">
+        <div class="rating-options">
+            <label>Rate from 1 to 10:</label><br>
+            {% for i in range(1, 11) %}
+            <input type="radio" id="rating_{{ image.id }}_{{ i }}" name="rating_{{ image.id }}" value="{{ i }}" required>
+            <label for="rating_{{ image.id }}_{{ i }}">{{ i }}</label>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+    <button type="submit">Submit Ratings</button>
+</form>
+{% endblock %}

@@ -1,0 +1,51 @@
+body {
+    background-color: #F0F0F0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+h2 {
+    color: #333333;
+}
+
+.navbar {
+    background-color: #FFFFFF !important;
+}
+
+.btn-primary {
+    background-color: #FE3C72;
+    border: none;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #FF5858;
+}
+
+.alert-dismissible .close {
+    color: #333333;
+}
+
+.calibration-item img {
+    width: auto;
+    height: auto;
+    max-width: 8cm;
+    max-height: 6cm;  /* Ensures 4:3 ratio with 8cm as the larger side */
+    object-fit: contain;  /* Scale down to fit the container without cropping */
+    background-color: #f0f0f0;  /* Optional: Add background to emphasize the border */
+    border: 1px solid #ddd;  /* Optional: Border for better visibility */
+    display: block;
+    margin: 0 auto;  /* Center the image horizontally */
+}
+
+/* Softer background for main pages */
+.page-background {
+    background-color: #FAFAFA; /* Softer off-white tone */
+    color: #333333;
+    padding: 4cm 0;
+}
+.container-content {
+    background-color: #FFFFFF; /* White container for content */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
