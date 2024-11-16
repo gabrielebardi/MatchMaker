@@ -6,4 +6,5 @@ venv/
 __pycache__/
 .DS_Store
 .env.env
-
+.env
+openai_test.py
