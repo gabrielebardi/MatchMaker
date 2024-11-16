@@ -1,23 +1,80 @@
-<h2>Register Page Test</h2>
-<form method="POST" action="{{ url_for('register') }}">
-    {{ form.hidden_tag() }}
-    <div class="form-group">
-        {{ form.email.label(class="form-label") }}
-        {{ form.email(class="form-control") }}
+{% extends "layout.html" %}
+{% block title %}Register{% endblock %}
+{% block content %}
+
+<div class="container mt-5">
+    <h2 class="text-center" style="color: #333333;">Create Your MatchMaker Account</h2>
+    <p class="text-center" style="color: #666666;">Fill in the details below to sign up.</p>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="POST" action="{{ url_for('register') }}">
+                {{ form.hidden_tag() }}
+
+                <!-- Email Field -->
+                <div class="form-group">
+                    {{ form.email.label(class="form-label") }}
+                    {{ form.email(class="form-control", placeholder="Enter your email") }}
+                    {% if form.email.errors %}
+                        <small class="text-danger">
+                            {{ form.email.errors[0] }}
+                        </small>
+                    {% endif %}
+                </div>
+
+                <!-- Preference Field as Dropdown -->
+                <div class="form-group mt-4">
+                    {{ form.preference.label(class="form-label") }}
+                    {{ form.preference(class="form-control") }}
+                    {% if form.preference.errors %}
+                        <small class="text-danger">
+                            {{ form.preference.errors[0] }}
+                        </small>
+                    {% endif %}
+                </div>
+
+                <!-- Password Field -->
+                <div class="form-group mt-4">
+                    {{ form.password.label(class="form-label") }}
+                    {{ form.password(class="form-control", placeholder="Enter your password") }}
+                    {% if form.password.errors %}
+                        <small class="text-danger">
+                            {{ form.password.errors[0] }}
+                        </small>
+                    {% endif %}
+                </div>
+
+                <!-- Confirm Password Field -->
+                <div class="form-group mt-4">
+                    {{ form.confirm_password.label(class="form-label") }}
+                    {{ form.confirm_password(class="form-control", placeholder="Confirm your password") }}
+                    {% if form.confirm_password.errors %}
+                        <small class="text-danger">
+                            {{ form.confirm_password.errors[0] }}
+                        </small>
+                    {% endif %}
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-group text-center mt-4">
+                    <button type="submit" class="btn btn-primary" style="background-color: #FE3C72; border-color: #FE3C72; font-weight: bold;">
+                        Register
+                    </button>
+                </div>
+
+                <!-- Add 'or' text and Login button -->
+                <div class="text-center mt-3" style="color: #666666;">
+                    <p>or</p>
+                </div>
+
+                <div class="form-group text-center">
+                    <a href="{{ url_for('login') }}" class="btn btn-secondary" style="background-color: #FF5858; color: #FFFFFF; font-weight: bold; border-radius: 5px;">
+                        Already Have an Account? Login
+                    </a>
+                </div>
+            </form>
+        </div>
     </div>
-    
-    <div class="form-group">
-        {{ form.preference.label(class="form-label") }}
-        {{ form.preference(class="form-control") }}
-    </div>
-    <div class="form-group">
-        {{ form.password.label(class="form-label") }}
-        {{ form.password(class="form-control") }}
-    </div>
-    <div class="form-group">
-        {{ form.confirm_password.label(class="form-label") }}
-        {{ form.confirm_password(class="form-control") }}
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-    
-</form>
+</div>
+
+{% endblock %}

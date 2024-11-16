@@ -1,0 +1,13 @@
+# Exclude virtual environments
+venv/
+env/
+
+# Exclude Git files
+.git
+.gitignore
+
+# Exclude cache and compiled files
+__pycache__/
+*.pyc
+
+.env

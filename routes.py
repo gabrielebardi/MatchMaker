@@ -31,6 +31,8 @@ def register():
         login_user(user)
         flash('Account created! Please complete the calibration.', 'success')
         return redirect(url_for('calibrate'))
+    else:
+        print(form.errors)
     
     return render_template('register.html', form=form)
 
@@ -117,7 +119,7 @@ def calibrate():
         return redirect(url_for('home'))
 
     # Handle GET request: Display unique images for calibration based on user's preference
-    gender = current_user.preference
+    gender = current_user.preference.lower()
 
     # Define directories for AI and celebrity images based on gender
     ai_images_dir = os.path.join(app.static_folder, 'images', 'calibration', 'ai', gender)

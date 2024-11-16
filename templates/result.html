@@ -16,5 +16,13 @@
 
     <h2>Generated Pickup Line</h2>
     <p>{{ result.pickup_line }}</p>
+
+    <!-- Back to Evaluate Button -->
+    <div class="text-center mt-5">
+        <a href="{{ url_for('evaluate') }}" class="btn btn-primary" 
+           style="background-color: #FE3C72; border-color: #FE3C72; color: #FFFFFF; font-weight: bold; padding: 15px 40px; font-size: 1.2em; border-radius: 5px;">
+            New Evaluation
+        </a>
+    </div>
 </div>
 {% endblock %}
