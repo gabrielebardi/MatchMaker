@@ -9,3 +9,5 @@ __pycache__/
 .env
 openai_test.py
 MatchMaker_alpha_backup.zip
+.specstory/
+genderedetection.py
